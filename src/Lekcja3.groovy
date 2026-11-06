@@ -41,3 +41,15 @@ if (!isFinal) {
     def inna = bundle.entry.resource.find { s -> s.status != "final" }
     println inna.id
 }
+//zadanie 4
+
+
+def observation = [
+        resourceType: "Observation",
+        status: "final",
+        code: [ text: "Tetno" ],
+        subject: [reference: "Patient/123"],
+        valueQuantity: [ value: 80, unit: "/min"]
+]
+
+println JsonOutput.prettyPrint(JsonOutput.toJson(observation))
